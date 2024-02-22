@@ -1,30 +1,38 @@
 package co.edu.uniquindio.tallerBanco.model;
 
+import co.edu.uniquindio.tallerBanco.Main;
 import co.edu.uniquindio.tallerBanco.model.Banco;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Cuenta {
 
-    private double numeroCuenta;
+    private String numeroCuenta;
     private double saldo;
-    Banco ownedByBanco;
+    private Usuario usuario;
+    private List<Transaccion> listaTransacciones = new ArrayList<>();
+    private Banco ownedByBanco;
 
     /*Constructor*/
 
     public Cuenta() {
     }
 
-    public Cuenta(double numeroCuenta, double saldo) {
+    public Cuenta(String numeroCuenta, double saldo, Usuario usuario) {
         this.numeroCuenta = numeroCuenta;
         this.saldo = saldo;
+        this.usuario = usuario;
     }
 
     /*Getters and Setters*/
 
-    public double getNumeroCuenta() {
+    public String getNumeroCuenta() {
         return numeroCuenta;
     }
 
-    public void setNumeroCuenta(double numeroCuenta) {
+    public void setNumeroCuenta(String numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
     }
 
@@ -36,6 +44,22 @@ public class Cuenta {
         this.saldo = saldo;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<Transaccion> getListaTransacciones() {
+        return listaTransacciones;
+    }
+
+    public void setListaTransacciones(List<Transaccion> listaTransacciones) {
+        this.listaTransacciones = listaTransacciones;
+    }
+
     public Banco getOwnedByBanco() {
         return ownedByBanco;
     }
@@ -44,12 +68,15 @@ public class Cuenta {
         this.ownedByBanco = ownedByBanco;
     }
 
-    public double generarNumeroCuenta() {
+    public String generarNumeroCuenta() {
 
-        numeroCuenta = Math.random();
+        int valorMinimo = 428594955;
+        int valorMaximo = 581050874;
+        Random random = new Random();
 
-        return numeroCuenta;
+        int numeroAleatorio = valorMinimo + random.nextInt((valorMaximo - valorMinimo)+1);
 
+        return String.valueOf(numeroAleatorio);
     }
 
     public String obtenerInformacion() {

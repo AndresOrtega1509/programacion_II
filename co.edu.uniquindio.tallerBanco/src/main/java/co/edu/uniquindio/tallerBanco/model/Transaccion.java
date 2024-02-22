@@ -1,41 +1,43 @@
 package co.edu.uniquindio.tallerBanco.model;
 
-import co.edu.uniquindio.tallerBanco.model.Banco;
+import co.edu.uniquindio.tallerBanco.enumeracion.Categoria;
 
 public class Transaccion {
 
-    private String de;
-    private String para;
+    private String remitente;
+    private String destinatario;
     private String valor;
-    Banco ownedByBanco;
+    private Categoria categoria;
+    private Banco ownedByBanco;
 
     /*Constructor*/
 
     public Transaccion() {
     }
 
-    public Transaccion(String de, String para, String valor) {
-        this.de = de;
-        this.para = para;
+    public Transaccion(String remitente, String destinatario, String valor, Categoria categoria) {
+        this.remitente = remitente;
+        this.destinatario = destinatario;
         this.valor = valor;
+        this.categoria = categoria;
     }
 
     /*Getters and Setters*/
 
-    public String getDe() {
-        return de;
+    public String getRemitente() {
+        return remitente;
     }
 
-    public void setDe(String de) {
-        this.de = de;
+    public void setRemitente(String de) {
+        this.remitente = de;
     }
 
-    public String getPara() {
-        return para;
+    public String getDestinatario() {
+        return destinatario;
     }
 
-    public void setPara(String para) {
-        this.para = para;
+    public void setDestinatario(String destinatario) {
+        this.destinatario = destinatario;
     }
 
     public String getValor() {
@@ -44,6 +46,14 @@ public class Transaccion {
 
     public void setValor(String valor) {
         this.valor = valor;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public Banco getOwnedByBanco() {

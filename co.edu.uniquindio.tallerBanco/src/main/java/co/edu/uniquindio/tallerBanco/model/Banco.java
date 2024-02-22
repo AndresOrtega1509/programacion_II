@@ -8,9 +8,8 @@ public class Banco {
     private String nombre;
     private String direccion;
     private String telefono;
-
-    List<Usuario> listaUsuarios = new ArrayList<>();
-    List<Cuenta> listaCuentas = new ArrayList<>();
+    private List<Usuario> listaUsuarios = new ArrayList<>();
+    private List<Cuenta> listaCuentas = new ArrayList<>();
 
     /*Constructor*/
 
@@ -89,7 +88,7 @@ public class Banco {
     public void crearCuenta(int saldo) {
 
         Cuenta cuenta = new Cuenta();
-        double numeroCuenta = cuenta.generarNumeroCuenta();
+        String numeroCuenta = cuenta.generarNumeroCuenta();
         cuenta.setNumeroCuenta(numeroCuenta);
         cuenta.setSaldo(saldo);
         getListaCuentas().add(cuenta);

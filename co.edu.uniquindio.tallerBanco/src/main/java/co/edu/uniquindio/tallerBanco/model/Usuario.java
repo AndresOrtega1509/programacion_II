@@ -1,6 +1,5 @@
 package co.edu.uniquindio.tallerBanco.model;
 
-import co.edu.uniquindio.tallerBanco.model.Banco;
 
 public class Usuario {
 
@@ -9,7 +8,7 @@ public class Usuario {
     private String cedula;
     private String correo;
     private String contrasena;
-    Banco ownedByBanco;
+    private Banco ownedByBanco;
 
     /*Constructor*/
 
