@@ -70,13 +70,14 @@ public class Cuenta {
 
     public String generarNumeroCuenta() {
 
-        int valorMinimo = 428594955;
-        int valorMaximo = 581050874;
+        int valorMinimo = 524049384;
+        int valorMaximo = 584049384;
         Random random = new Random();
 
         int numeroAleatorio = valorMinimo + random.nextInt((valorMaximo - valorMinimo)+1);
 
         return String.valueOf(numeroAleatorio);
+
     }
 
     public String obtenerInformacion() {

@@ -2,6 +2,7 @@ package co.edu.uniquindio.tallerBanco.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Banco {
 
@@ -88,11 +89,34 @@ public class Banco {
     public void crearCuenta(int saldo) {
 
         Cuenta cuenta = new Cuenta();
-        String numeroCuenta = cuenta.generarNumeroCuenta();
-        cuenta.setNumeroCuenta(numeroCuenta);
+        String cuentaUnico = generarNumeroCuentaUnico();
+        cuenta.setNumeroCuenta(cuentaUnico);
         cuenta.setSaldo(saldo);
         getListaCuentas().add(cuenta);
     }
+
+    private String generarNumeroCuentaUnico() {
+
+        Cuenta cuenta = new Cuenta();
+        String numeroCuenta;
+
+        do {
+            numeroCuenta = cuenta.generarNumeroCuenta();
+        }while (verificarNumeroCuenta(numeroCuenta));
+
+        return numeroCuenta;
+    }
+
+    private boolean verificarNumeroCuenta(String numeroCuenta) {
+        boolean bandera = false;
+        for (Cuenta cuenta: listaCuentas){
+            if (cuenta.getNumeroCuenta().equalsIgnoreCase(numeroCuenta)){
+                bandera = true;
+            }
+        }
+        return bandera;
+    }
+
 
     public List<Usuario> obtenerUsuarios() {
         return  getListaUsuarios();
