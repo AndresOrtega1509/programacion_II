@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fb47f82f-2e38-4eb0-91a4-df0903f149e7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/enumeracion/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/enumeracion/Categoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Banco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Cuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Transaccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Transaccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Usuario.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev-programacion_II" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2cqA7kuVvOFMtHdy3NrdAH0w6xN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "dev__FabianGS",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/fabia/.jdks",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="co.edu.uniquindio.tallerBanco.Main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.edu.uniquindio.tallerBanco.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="programacion_II" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="programacion_II" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fb47f82f-2e38-4eb0-91a4-df0903f149e7" name="Changes" comment="" />
+      <created>1708828571162</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1708828571162</updated>
+      <workItem from="1708828573203" duration="6021000" />
+      <workItem from="1708835220388" duration="463000" />
+      <workItem from="1708835719756" duration="53000" />
+      <workItem from="1708835839265" duration="7500000" />
+      <workItem from="1708872346391" duration="8128000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

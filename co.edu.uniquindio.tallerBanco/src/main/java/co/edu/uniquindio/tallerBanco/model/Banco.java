@@ -6,25 +6,42 @@ import java.util.Objects;
 
 public class Banco {
 
+    /**
+     * Atributos Clase Banco
+     */
     private String nombre;
     private String direccion;
     private String telefono;
-    private List<Usuario> listaUsuarios = new ArrayList<>();
-    private List<Cuenta> listaCuentas = new ArrayList<>();
 
-    /*Constructor*/
+    /**
+     * ArrayList de las Clases Creadas
+     */
+    List<Usuario> listaUsuarios = new ArrayList<>();
+    List<Cuenta> listaCuentas = new ArrayList<>();
+    List<Transaccion> listaTransacciones = new ArrayList<>();
 
+    /**
+     * Constructor Vacío
+     */
     public Banco() {
     }
 
+    /**
+     * Constructor con Parámetros
+     * @param nombre
+     * @param direccion
+     * @param telefono
+     */
     public Banco(String nombre, String direccion, String telefono) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
     }
 
-    /*Getters and Setters*/
-
+    /**
+     * Getters y Setters Atributos Clase Banco
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
@@ -49,6 +66,10 @@ public class Banco {
         this.telefono = telefono;
     }
 
+    /**
+     * Getters y Setters de ArrayList de las Clases Creadas
+     * @return
+     */
     public List<Usuario> getListaUsuarios() {
         return listaUsuarios;
     }
@@ -65,11 +86,38 @@ public class Banco {
         this.listaCuentas = listaCuentas;
     }
 
+    public List<Transaccion> getListaTransacciones() {
+        return listaTransacciones;
+    }
 
-    public void crearUsuario(String nombre, String direccion, String cedula, String correo, String contrasena) {
+    public void setListaTransacciones(List<Transaccion> listaTransacciones) {
+        this.listaTransacciones = listaTransacciones;
+    }
 
+    /**
+     * To String Clase Banco
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "Banco{" +
+                "nombre='" + nombre + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                '}';
+    }
+
+    /**
+     * Método para Crear Usuario
+     * @param nombre
+     * @param direccion
+     * @param cedula
+     * @param correo
+     * @param contrasena
+     */
+    public void crearUsuario(String nombre, String direccion, String cedula,
+                             String correo, String contrasena) {
         int resultadoBusqueda = devolverPosicionUsuario(cedula);
-
         if (resultadoBusqueda == -1) {
             Usuario usuario = new Usuario();
             usuario.setNombre(nombre);
@@ -79,15 +127,16 @@ public class Banco {
             usuario.setContrasena(contrasena);
             getListaUsuarios().add(usuario);
             System.out.println("Usuario creado exitosamente");
-
         } else {
             System.out.println("El usuario ya esta creado en el sistema");
         }
-
     }
 
+    /**
+     * Método para Crear Cuenta
+     * @param saldo
+     */
     public void crearCuenta(int saldo) {
-
         Cuenta cuenta = new Cuenta();
         String cuentaUnico = generarNumeroCuentaUnico();
         cuenta.setNumeroCuenta(cuentaUnico);
@@ -95,18 +144,24 @@ public class Banco {
         getListaCuentas().add(cuenta);
     }
 
+    /**
+     * Método para Generar Número único para Cuenta de Ahorros
+     * @return
+     */
     private String generarNumeroCuentaUnico() {
-
         Cuenta cuenta = new Cuenta();
         String numeroCuenta;
-
         do {
             numeroCuenta = cuenta.generarNumeroCuenta();
         }while (verificarNumeroCuenta(numeroCuenta));
-
         return numeroCuenta;
     }
 
+    /**
+     * Método para Verificar el Número único para Cuenta de Ahorros
+     * @param numeroCuenta
+     * @return
+     */
     private boolean verificarNumeroCuenta(String numeroCuenta) {
         boolean bandera = false;
         for (Cuenta cuenta: listaCuentas){
@@ -117,17 +172,12 @@ public class Banco {
         return bandera;
     }
 
-
-    public List<Usuario> obtenerUsuarios() {
-        return  getListaUsuarios();
-    }
-
-    public List<Cuenta> obtenerCuentas() {
-        return getListaCuentas();
-    }
-
+    /**
+     * Método para Devolver Posición de Usuario
+     * @param cedula
+     * @return
+     */
     private int devolverPosicionUsuario(String cedula) {
-
         int posicion = -1;
         boolean bandera = false;
         for (int i = 0; i < listaUsuarios.size() && bandera == false; i++) {
@@ -137,22 +187,31 @@ public class Banco {
             }
         }
         return posicion;
-
     }
 
+    /**
+     * Método para Eliminar Usuario
+     * @param cedula
+     */
     public void eliminarUsuario(String cedula) {
-
         for(Usuario usuario : listaUsuarios){
             if (usuario.getCedula().equalsIgnoreCase(cedula)){
                 getListaUsuarios().remove(usuario);
                 break;
             }
         }
-
     }
 
-    public void actualizarUsuario(String cedula, String nombre, String direccion, String correo, String contrasena) {
-
+    /**
+     * Método para Actualizar Información del Usuario
+     * @param cedula
+     * @param nombre
+     * @param direccion
+     * @param correo
+     * @param contrasena
+     */
+    public void actualizarUsuario(String cedula, String nombre, String direccion,
+                                  String correo, String contrasena) {
         for (Usuario usuario : listaUsuarios){
             if (usuario.getCedula().equalsIgnoreCase(cedula)){
                 usuario.setNombre(nombre);

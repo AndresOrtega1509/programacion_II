@@ -1,5 +1,8 @@
 package co.edu.uniquindio.tallerBanco.enumeracion;
 
+/**
+ * Enum del tipo de categoría para realizar transacciones
+ */
 public enum Categoria {
-    VIAJE, FACTURA, GASOLINA, ROPA
+    FACTURA, GASOLINA, ROPA, VIAJE
 }
