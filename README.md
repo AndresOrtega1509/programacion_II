@@ -1,8 +1,8 @@
 # programacion_II
 
-Proyecto desarrollado para la materia de Programación II Grupo 2N por: Nelson Fabián Gallego Sánchez
-                                                                       Andrés Felipe Ortega Méndez
-                                                                       Yamileth Londoño Burgos
+Proyecto desarrollado para la materia de Programación II Grupo 2N por: Nelson Fabián Gallego Sánchez;
+                                                                       Andrés Felipe Ortega Méndez;
+                                                                       Yamileth Londoño Burgos.
 
 Una entidad bancaria requiere desarrollar una plataforma de software que mejore la experiencia del usuario y la 
 eficiencia operativa del banco mediante la simplificación del proceso de registro de usuarios, la gestión de cuentas y 

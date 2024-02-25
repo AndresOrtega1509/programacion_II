@@ -17,8 +17,8 @@ public class Banco {
      * ArrayList de las Clases Creadas
      */
     List<Usuario> listaUsuarios = new ArrayList<>();
-    List<Cuenta> listaCuentas = new ArrayList<>();
     List<Transaccion> listaTransacciones = new ArrayList<>();
+    List<Cuenta> listaCuentas = new ArrayList<>();
 
     /**
      * Constructor Vacío
@@ -78,20 +78,20 @@ public class Banco {
         this.listaUsuarios = listaUsuarios;
     }
 
-    public List<Cuenta> getListaCuentas() {
-        return listaCuentas;
-    }
-
-    public void setListaCuentas(List<Cuenta> listaCuentas) {
-        this.listaCuentas = listaCuentas;
-    }
-
     public List<Transaccion> getListaTransacciones() {
         return listaTransacciones;
     }
 
     public void setListaTransacciones(List<Transaccion> listaTransacciones) {
         this.listaTransacciones = listaTransacciones;
+    }
+
+    public List<Cuenta> getListaCuentas() {
+        return listaCuentas;
+    }
+
+    public void setListaCuentas(List<Cuenta> listaCuentas) {
+        this.listaCuentas = listaCuentas;
     }
 
     /**
