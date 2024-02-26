@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb47f82f-2e38-4eb0-91a4-df0903f149e7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Cuenta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Transaccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Transaccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev-programacion_II" />
+        <entry key="$PROJECT_DIR$" value="dev_FabianGS" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,29 +38,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev__FabianGS&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/fabia/.jdks&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Maven. [clean].executor": "Run",
+    "Maven. [compile].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "dev-Yamileth",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/fabia/.jdks",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.editor",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="co.edu.uniquindio.tallerBanco.Main" />
