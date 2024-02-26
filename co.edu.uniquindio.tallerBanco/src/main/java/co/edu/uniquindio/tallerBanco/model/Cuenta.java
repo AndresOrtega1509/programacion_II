@@ -10,30 +10,30 @@ import java.util.Random;
 public class Cuenta {
 
     /**
-     * Atributos Clase Cuenta
+     * Atributos clase cuenta
      */
     private String numeroCuenta;
     private float saldo;
     private Usuario usuario;
 
     /**
-     * Variable para Relacionar Padre
+     * Variable para relacionar padre
      */
     Banco ownedByBanco;
 
     /**
-     * ArrayList Relacionadas de la Clase
+     * ArrayList relacionadas de la clase
      */
     List<Transaccion> listaTransacciones = new ArrayList<>();
 
     /**
-     * Constructor Vacío
+     * Constructor vacío
      */
     public Cuenta() {
     }
 
     /**
-     * Constructor con Parámetros
+     * Constructor con parámetros
      * @param numeroCuenta
      * @param saldo
      * @param usuario
@@ -45,7 +45,7 @@ public class Cuenta {
     }
 
     /**
-     * Getters y Setters Atributos Clase Cuenta
+     * Getters y Setters atributos clase cuenta
      * @return
      */
     public String getNumeroCuenta() {
@@ -73,7 +73,7 @@ public class Cuenta {
     }
 
     /**
-     *Getters y Setters de Variable para Relacionar Padre
+     *Getters y Setters de variable para relacionar padre
      * @return
      */
     public Banco getOwnedByBanco() {
@@ -85,7 +85,7 @@ public class Cuenta {
     }
 
     /**
-     * Getters y Setters de ArrayList Relacionadas de la Clase
+     * Getters y Setters de ArrayList relacionadas de la clase
      * @return
      */
     public List<Transaccion> getListaTransacciones() {
@@ -97,7 +97,7 @@ public class Cuenta {
     }
 
     /**
-     * To String Clase Transaccion
+     * To String clase transaccion
      * @return
      */
     @Override
@@ -110,7 +110,7 @@ public class Cuenta {
     }
 
     /**
-     * Método para Generar el número de Cuenta de Ahorros de forms Aleatoria
+     * Método para generar el número de cuenta de ahorros de forma aleatoria
      * @return
      */
     public String generarNumeroCuenta() {

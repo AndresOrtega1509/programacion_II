@@ -9,12 +9,12 @@ import java.util.List;
 public class Main {
 
     /**
-     * Main Principal del Proyecto
+     * Main principal del proyecto
      * @param args
      */
     public static void main(String[] args) {
 
-        //Declaración Método Inicializar Datos Prueba
+        //Declaración método inicializar datos prueba
         Banco banco = inicializarDatosPrueba();
 
         /*CRUD Usuario*/
@@ -51,7 +51,7 @@ public class Main {
     }
 
     /**
-     * Método para Inicializar Datos Prueba
+     * Método para inicializar datos prueba
      * @return
      */
     private static Banco inicializarDatosPrueba() {
@@ -63,7 +63,7 @@ public class Main {
     }
 
     /**
-     * Método para Crear Usuario
+     * Método para crear usuario
      * @param nombre
      * @param direccion
      * @param cedula
@@ -79,7 +79,7 @@ public class Main {
     }
 
     /**
-     * Método para Crear Cuenta
+     * Método para crear cuenta
      * @param saldo
      * @param banco
      */
@@ -88,7 +88,7 @@ public class Main {
     }
 
     /**
-     * Método para Mostrar Información de Usuarios
+     * Método para mostrar información de usuarios
      * @param banco
      */
     private static void mostrarInformacionUsuarios(Banco banco) {
@@ -101,7 +101,7 @@ public class Main {
     }
 
     /**
-     * Método para Mostrar Informaciín de Cuentas
+     * Método para mostrar informaciín de cuentas de ahorros
      * @param banco
      */
     private static void mostrarInformacionCuentas(Banco banco) {
@@ -114,7 +114,7 @@ public class Main {
     }
 
     /**
-     * Método para Eliminar Usuario
+     * Método para eliminar usuario
      * @param cedula
      * @param banco
      */
@@ -123,7 +123,7 @@ public class Main {
     }
 
     /**
-     * Método para Actualizar Usuario
+     * Método para actualizar usuario
      * @param cedula
      * @param nombre
      * @param direccion

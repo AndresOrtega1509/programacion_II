@@ -3,37 +3,38 @@ package co.edu.uniquindio.tallerBanco.model;
 import co.edu.uniquindio.tallerBanco.enumeracion.Categoria;
 import co.edu.uniquindio.tallerBanco.enumeracion.TipoTransaccion;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Transaccion {
 
     /**
-     * Atributos Clase Transaccion
+     * Atributos clase transaccion
      */
     private String remitente;
     private Cuenta cuentaOrigen;
     private String destinatario;
     private Cuenta cuentaDestino;
     private float valor;
-    private date fecha;
+    private LocalDate fecha;
     private Categoria categoria;
     private short costo;
     private TipoTransaccion tipoTransaccion;
 
     /**
-     * Variable para Relacionar Padre
+     * Variable para relacionar padre
      */
     Banco ownedByBanco;
 
     /**
-     * Constructor Vacío
+     * Constructor vacío
      */
     public Transaccion() {
     }
 
     /**
-     * Constructor con Parámetros
+     * Constructor con parámetros
      * @param remitente
      * @param cuentaOrigen
      * @param destinatario
@@ -59,7 +60,7 @@ public class Transaccion {
     }
 
     /**
-     * Getters y Setters Atributos de Clase Transaccion
+     * Getters y Setters atributos de clase transaccion
      * @return
      */
     public String getRemitente() {
@@ -135,7 +136,7 @@ public class Transaccion {
     }
 
     /**
-     * Getters y Setters de Variable para Relacionar Padre
+     * Getters y Setters de variable para relacionar padre
      */
     public Banco getOwnedByBanco() {
         return ownedByBanco;
@@ -146,7 +147,7 @@ public class Transaccion {
     }
 
     /**
-     * To String Clase Transaccion
+     * To String clase transaccion
      * @return
      */
     @Override

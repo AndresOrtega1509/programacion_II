@@ -3,7 +3,7 @@ package co.edu.uniquindio.tallerBanco.model;
 public class Usuario {
 
     /**
-     * Atributos de Clase Usuario
+     * Atributos de clase usuario
      */
     private String nombre;
     private String direccion;
@@ -12,18 +12,18 @@ public class Usuario {
     private String contrasena;
 
     /**
-     * Variable para Relacionar Padre
+     * Variable para relacionar padre
      */
     Banco ownedByBanco;
 
     /**
-     * Constructor Vacío
+     * Constructor vacío
      */
     public Usuario() {
     }
 
     /**
-     * Constructor con Parámetros
+     * Constructor con parámetros
      * @param nombre
      * @param direccion
      * @param cedula
@@ -39,7 +39,7 @@ public class Usuario {
     }
 
     /**
-     * Getters y Setters Atributos de Clase Usuario
+     * Getters y Setters atributos de clase usuario
      * @return
      */
     public String getNombre() {
@@ -83,7 +83,7 @@ public class Usuario {
     }
 
     /**
-     * Getters y Setters de Variable para Relacionar Padre
+     * Getters y Setters de variable para relacionar padre
      */
     public Banco getOwnedByBanco() {
         return ownedByBanco;
@@ -94,7 +94,7 @@ public class Usuario {
     }
 
     /**
-     * To String Clase Usuario
+     * To String clase usuario
      * @return
      */
     @Override
