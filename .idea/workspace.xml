@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fb47f82f-2e38-4eb0-91a4-df0903f149e7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Banco.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Banco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Cuenta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Transaccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Transaccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/co.edu.uniquindio.tallerBanco/src/main/java/co/edu/uniquindio/tallerBanco/model/Usuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +67,8 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17 (3)" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="co.edu.uniquindio.tallerBanco.Main" />
       <extension name="coverage">
         <pattern>
@@ -110,7 +107,7 @@
       <workItem from="1708835719756" duration="53000" />
       <workItem from="1708835839265" duration="7500000" />
       <workItem from="1708872346391" duration="10262000" />
-      <workItem from="1708895645137" duration="21692000" />
+      <workItem from="1708895645137" duration="22417000" />
     </task>
     <servers />
   </component>
