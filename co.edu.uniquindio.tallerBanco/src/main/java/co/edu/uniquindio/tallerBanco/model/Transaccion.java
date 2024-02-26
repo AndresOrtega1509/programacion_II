@@ -3,6 +3,8 @@ package co.edu.uniquindio.tallerBanco.model;
 import co.edu.uniquindio.tallerBanco.enumeracion.Categoria;
 import co.edu.uniquindio.tallerBanco.enumeracion.TipoTransaccion;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Transaccion {
@@ -11,7 +13,7 @@ public class Transaccion {
     private String cuentaDestinatario;
     private double valor;
     private Categoria categoria;
-    private Date fecha;
+    private LocalDate fecha;
     private TipoTransaccion tipoTransaccion;
     private Banco ownedByBanco;
 
@@ -20,7 +22,7 @@ public class Transaccion {
     public Transaccion() {
     }
 
-    public Transaccion(Cuenta remitente, Cuenta destinatario, double valor, Categoria categoria, Date fecha, TipoTransaccion tipoTransaccion) {
+    public Transaccion(Cuenta remitente, Cuenta destinatario, double valor, Categoria categoria, LocalDate fecha, TipoTransaccion tipoTransaccion) {
         this.cuentaRemitente = remitente.getNumeroCuenta();
         this.cuentaDestinatario = destinatario.getNumeroCuenta();
         this.valor = valor;
@@ -73,11 +75,11 @@ public class Transaccion {
         this.ownedByBanco = ownedByBanco;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

@@ -106,12 +106,4 @@ public class Cuenta {
         }
     }
 
-    public void consultarTransaccionFecha(Date fechaConsulta) {
-
-        for (Transaccion transaccion : listaTransacciones){
-            if (transaccion.getFecha() == fechaConsulta){
-                System.out.println("Transacciones de acuerdo a la fecha: "+ fechaConsulta +"\n"+ transaccion);
-            }
-        }
-    }
 }

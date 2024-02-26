@@ -3,10 +3,11 @@ package co.edu.uniquindio.tallerBanco.model;
 import co.edu.uniquindio.tallerBanco.enumeracion.Categoria;
 import co.edu.uniquindio.tallerBanco.enumeracion.TipoTransaccion;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 public class Banco {
 
@@ -70,7 +71,7 @@ public class Banco {
     }
 
 
-    public void crearUsuario(String nombre, String direccion, String cedula, String correo, String contrasena) {
+    public Usuario crearUsuario(String nombre, String direccion, String cedula, String correo, String contrasena) {
 
         int resultadoBusqueda = devolverPosicionUsuario(cedula);
 
@@ -84,13 +85,14 @@ public class Banco {
             getListaUsuarios().add(usuario);
             System.out.println("Usuario creado exitosamente");
 
+            return usuario;
         } else {
             System.out.println("El usuario ya esta creado en el sistema");
         }
-
+        return  null;
     }
 
-    public void crearCuenta(String cedula, int saldo) {
+    public Cuenta crearCuenta(String cedula, int saldo) {
 
         Cuenta cuenta = new Cuenta();
         String cuentaUnico = generarNumeroCuentaUnico();
@@ -103,6 +105,7 @@ public class Banco {
             cuenta.setUsuarioAsociado(usuario);
         }
         getListaCuentas().add(cuenta);
+        return cuenta;
     }
 
     private Usuario obtenerUsuario(String cedula) {
@@ -167,9 +170,9 @@ public class Banco {
             if (usuario.getCedula().equalsIgnoreCase(cedula)){
                 getListaUsuarios().remove(usuario);
                 break;
+
             }
         }
-
     }
 
     public void actualizarUsuario(String cedula, String nombre, String direccion, String correo, String contrasena) {
@@ -192,10 +195,11 @@ public class Banco {
 
         if (cuentaRemitente != null && cuentaDestinatario != null && revisarSaldo(numeroCuentaDestinatario, monto)){
 
-            Transaccion transaccionRemitente = new Transaccion(cuentaRemitente, cuentaDestinatario,monto, categoria, new Date(2023,5,3), TipoTransaccion.SALIDA);
+            LocalDate fechaActual = LocalDate.now();
+            Transaccion transaccionRemitente = new Transaccion(cuentaRemitente, cuentaDestinatario,monto, categoria, fechaActual, TipoTransaccion.SALIDA);
             cuentaRemitente.getListaTransacciones().add(transaccionRemitente);
             transferir(cuentaRemitente, monto);
-            Transaccion transaccionDestinatario = new Transaccion(cuentaRemitente,cuentaDestinatario, monto, categoria, new Date(2023,5,3), TipoTransaccion.ENTRADA);
+            Transaccion transaccionDestinatario = new Transaccion(cuentaRemitente,cuentaDestinatario, monto, categoria, fechaActual, TipoTransaccion.ENTRADA);
             cuentaDestinatario.getListaTransacciones().add(transaccionDestinatario);
             depositar(cuentaDestinatario, monto);
 
@@ -204,9 +208,16 @@ public class Banco {
 
     private void transferir(Cuenta cuentaRemitente, double monto) {
 
-        double saldoRemitente = cuentaRemitente.getSaldo() - monto - 200;
+        double saldoRemitente = cuentaRemitente.getSaldo() - monto;
 
-        cuentaRemitente.setSaldo(saldoRemitente);
+        costoTransferencia(cuentaRemitente, saldoRemitente);
+    }
+
+    private void costoTransferencia(Cuenta cuentaRemitente, double saldoRemitente) {
+
+        double saldoFinalRemitente = saldoRemitente - 200;
+
+        cuentaRemitente.setSaldo(saldoFinalRemitente);
     }
 
     private void depositar(Cuenta cuentaDestinatario, double monto) {
@@ -245,39 +256,57 @@ public class Banco {
         return cuentaEncontrada;
     }
 
-    public void consultarSaldo(String cedula, String contrasena) {
+    public double consultarSaldo(String cedula, String contrasena) {
 
-        String saldoEncontrado = "Usuario no encontrado";
+        double saldoEncontrado = 0.0;
 
         for (Cuenta cuenta : listaCuentas){
-            if (cuenta.getUsuarioAsociado().getCedula().equalsIgnoreCase(cedula) &&
+            if (cuenta.getUsuarioAsociado() != null && cuenta.getUsuarioAsociado().getCedula().equalsIgnoreCase(cedula) &&
                     cuenta.getUsuarioAsociado().getContrasena().equalsIgnoreCase(contrasena)) {
 
-                saldoEncontrado = String.valueOf(cuenta.getSaldo());
+                saldoEncontrado = cuenta.getSaldo();
 
                 if (cuenta.getListaTransacciones().isEmpty()){
                     System.out.println("El usuario no tiene registradas transacciones");
                 }else {
-                    saldoEncontrado += "\n" + "Transacciones asociadas: "+ "\n" + cuenta.getListaTransacciones();
+                    obtenerTransacciom(cuenta);
                 }
             }
 
         }
 
-        System.out.println("El saldo disponible en la cuenta es de: "+ saldoEncontrado +"\n");
+        System.out.println("\n" + "El saldo disponible en la cuenta es de: "+ saldoEncontrado +"\n");
 
+        return saldoEncontrado;
     }
 
-    public Transaccion consultarTransaccionFecha(Date fechaConsulta) {
+    private void obtenerTransacciom(Cuenta cuenta) {
+        System.out.println("Lista de transacciones asociadas:");
+        System.out.println(cuenta.getListaTransacciones());
+    }
+
+    public Usuario buscarUsuarioPorCedula(String cedula) {
+
+        Usuario usuarioEncontrado = null;
+
+        for (Usuario usuario : listaUsuarios){
+            if (usuario.getCedula().equalsIgnoreCase(cedula)){
+                usuarioEncontrado = usuario;
+            }
+        }
+        return usuarioEncontrado;
+    }
+
+    public Transaccion consultarTransaccionFecha(LocalDate fechaConsulta) {
+
         Transaccion transaccionEncontrada = null;
         for (Cuenta cuenta : listaCuentas ){
             for (Transaccion transaccion : cuenta.getListaTransacciones()){
-                if (transaccion.getFecha() == fechaConsulta){
+                if (transaccion.getFecha().equals(fechaConsulta)){
                     transaccionEncontrada = transaccion;
                 }
             }
         }
         return transaccionEncontrada;
-
     }
 }

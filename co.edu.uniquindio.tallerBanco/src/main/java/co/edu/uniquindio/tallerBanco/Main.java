@@ -6,6 +6,8 @@ import co.edu.uniquindio.tallerBanco.model.Cuenta;
 import co.edu.uniquindio.tallerBanco.model.Transaccion;
 import co.edu.uniquindio.tallerBanco.model.Usuario;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +20,7 @@ public class Main {
 
         /*Create*/
         crearUsuario("Carlos", "barrio Cecilia", "1094029384", "carlos@hotmail.com","1724", banco);
-        crearUsuario("Sandra", "Conjunto Sinai", "1097738093", "sandra@hotmail.com","9083", banco);
+        crearUsuario("Sandra", "Conjunto Sinai", "1097564783", "sandra@hotmail.com","9083", banco);
         crearUsuario("Miguel", "Barrio la milagrosa", "1083849302", "miguel@hotmail.com","4039", banco);
         crearUsuario("Sara", "Barrio la castellana", "1032940394", "sara@hotmail.com","7645", banco);
 
@@ -42,7 +44,7 @@ public class Main {
 
         crearCuenta("1032940394",80000, banco);
         crearCuenta("1083849302",70000, banco);
-        crearCuenta("1097738093",75000, banco);
+        crearCuenta("1097564783",75000, banco);
 
         System.out.println("\n" + "Informacion Cuentas: " + "\n");
         mostrarInformacionCuentas(banco);
@@ -62,11 +64,13 @@ public class Main {
 
         consultarSaldo("1083849302","1234", banco);
 
-        Date fechaConsulta = new Date(2023, 5, 3);
+        LocalDate fechaConsulta = LocalDate.of(2024, 2, 26);
 
-        Transaccion consultaFecha = banco.consultarTransaccionFecha(fechaConsulta);
+        System.out.println("-----> consulta de transaccion de acuerdo a la fecha: " + fechaConsulta);
 
-        System.out.println(consultaFecha);
+        Transaccion consultaFechaTransaccion = banco.consultarTransaccionFecha(fechaConsulta);
+        System.out.println(consultaFechaTransaccion);
+
     }
 
     private static void mostrarInformacionTransferencias(Banco banco) {
