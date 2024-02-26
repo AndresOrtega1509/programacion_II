@@ -13,13 +13,18 @@ public class Cuenta {
      * Atributos Clase Cuenta
      */
     private String numeroCuenta;
-    private double saldo;
+    private float saldo;
     private Usuario usuario;
 
     /**
      * Variable para Relacionar Padre
      */
     Banco ownedByBanco;
+
+    /**
+     * ArrayList Relacionadas de la Clase
+     */
+    List<Transaccion> listaTransacciones = new ArrayList<>();
 
     /**
      * Constructor Vacío
@@ -77,6 +82,18 @@ public class Cuenta {
 
     public void setOwnedByBanco(Banco ownedByBanco) {
         this.ownedByBanco = ownedByBanco;
+    }
+
+    /**
+     * Getters y Setters de ArrayList Relacionadas de la Clase
+     * @return
+     */
+    public List<Transaccion> getListaTransacciones() {
+        return listaTransacciones;
+    }
+
+    public void setListaTransacciones(List<Transaccion> listaTransacciones) {
+        this.listaTransacciones = listaTransacciones;
     }
 
     /**

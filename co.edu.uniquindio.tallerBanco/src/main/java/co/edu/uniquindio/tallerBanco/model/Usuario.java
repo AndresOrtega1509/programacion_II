@@ -1,6 +1,6 @@
 package co.edu.uniquindio.tallerBanco.model;
 
-public class Usuario extends Banco {
+public class Usuario {
 
     /**
      * Atributos de Clase Usuario

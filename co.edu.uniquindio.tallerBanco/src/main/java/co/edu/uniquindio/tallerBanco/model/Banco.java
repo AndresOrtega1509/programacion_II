@@ -1,7 +1,12 @@
 package co.edu.uniquindio.tallerBanco.model;
 
+import co.edu.uniquindio.tallerBanco.enumeracion.Categoria;
+import co.edu.uniquindio.tallerBanco.enumeracion.TipoTransaccion;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Banco {
@@ -14,10 +19,9 @@ public class Banco {
     private String telefono;
 
     /**
-     * ArrayList de las Clases Creadas
+     * ArrayList Relacionadas de la Clase
      */
     List<Usuario> listaUsuarios = new ArrayList<>();
-    List<Transaccion> listaTransacciones = new ArrayList<>();
     List<Cuenta> listaCuentas = new ArrayList<>();
 
     /**
@@ -67,7 +71,7 @@ public class Banco {
     }
 
     /**
-     * Getters y Setters de ArrayList de las Clases Creadas
+     * Getters y Setters de ArrayList Relacionadas de la Clase
      * @return
      */
     public List<Usuario> getListaUsuarios() {
@@ -76,14 +80,6 @@ public class Banco {
 
     public void setListaUsuarios(List<Usuario> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
-    }
-
-    public List<Transaccion> getListaTransacciones() {
-        return listaTransacciones;
-    }
-
-    public void setListaTransacciones(List<Transaccion> listaTransacciones) {
-        this.listaTransacciones = listaTransacciones;
     }
 
     public List<Cuenta> getListaCuentas() {
@@ -221,5 +217,74 @@ public class Banco {
                 break;
             }
         }
+    }
+
+    /**
+     * Método para Determinar si Existe o no una Cuenta
+     * @param numeroCuenta
+     * @return
+     */
+    public boolean consultarCuenta(String numeroCuenta){
+        boolean cuentaEncontrada = false;
+        for (Cuenta cuenta : cuentas) {
+            if (cuenta.getCedula().equals(numeroCuenta)) {
+                cuentaEncontrada = true;
+                break;
+            }
+        }
+        return cuentaEncontrada;
+    }
+
+    /**
+     * Método para Revisar si el Saldo de la Cuenta es necesario para Realizar la Transacción
+     * @param numeroCuenta
+     * @param monto
+     * @return
+     */
+    public boolean revisarSaldoNecesario(String numeroCuenta, float monto){
+        boolean saldoNecesario = false;
+        for (Cuenta cuenta : cuentas) {
+            if (cuenta.getcedula().equals(numeroCuenta)) {
+                double saldo = cuenta.getSaldo();
+                if (saldo >= (monto + 200)){
+                    saldoNecesario = true;
+                    break;
+                }
+                break;
+            }
+        }
+        return saldoNecesario;
+    }
+
+    /**
+     * Método para Crear Transacciones
+     * @param idCuentaOrigen
+     * @param idCuentaDestino
+     * @param valorTransferencia
+     * @param categoriaGasto
+     * @return
+     */
+    public boolean crearTransaccion(String cuentaOrigen, String cuentaDestino, float valor,
+                                    Categoria categoria){
+        boolean transaccionExitosa = false;
+
+        Cuenta cuentaOrigen = obtenerCuenta(cuentaOrigen);
+        Cuenta cuentaDestino = obtenerCuenta(cuentaDestino);
+
+        if (consultarCuenta(cuentaDestino) && consultarCuenta(cuentaOrigen) &&
+                revisarSaldoNecesario(cuentaDestino, valor)) {
+            Transaccion transaccionCuentaOrigen = new Transaccion(cuentaOrigen, cuentaDestino, valor,
+                    categoria, TipoTransaccion.SALIDA);
+            cuentaOrigen.getListaTransacciones().add(transaccionCuentaOrigen);
+            cuentaOrigen.setSaldo(cuentaOrigen.getSaldo()-valorTransferencia-200);
+
+            Transaccion transaccionCuentaLlegada = new Transaccion(cuentaOrigen, cuentaDestino, valor,
+                    categoria, TipoTransaccion.ENTRADA);
+            cuentaDestino.getListaTransaciones().add(transaccionCuentaLlegada);
+            cuentaDestino.setSaldo(cuentaDestino.getSaldo()+valorTransferencia);
+
+            trasaccionExitosa = true;
+        }
+        return trasaccionExitosa;
     }
 }
