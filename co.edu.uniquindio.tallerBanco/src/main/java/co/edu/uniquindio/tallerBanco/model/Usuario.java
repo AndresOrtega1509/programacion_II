@@ -73,17 +73,20 @@ public class Usuario {
         this.ownedByBanco = ownedByBanco;
     }
 
-    public String obtenerInformacion(){
+    public String obtenerInformacion() {
+
         String informacion = "";
         informacion = informacion +
                 "Nombre: " + getNombre() + "\n" +
                 "Direccion: " + getDireccion() + "\n" +
                 "Cedula: " + getCedula() + "\n" +
                 "Correo: " + getCorreo() + "\n" +
-                "Contraseña: "+ getContrasena() + "\n";
+                "Contraseña: " + getContrasena() + "\n";
 
         return informacion;
+
     }
+
 }
 
 

@@ -1,9 +1,12 @@
 package co.edu.uniquindio.tallerBanco;
 
+import co.edu.uniquindio.tallerBanco.enumeracion.Categoria;
 import co.edu.uniquindio.tallerBanco.model.Banco;
 import co.edu.uniquindio.tallerBanco.model.Cuenta;
+import co.edu.uniquindio.tallerBanco.model.Transaccion;
 import co.edu.uniquindio.tallerBanco.model.Usuario;
 
+import java.util.Date;
 import java.util.List;
 
 public class Main {
@@ -17,32 +20,61 @@ public class Main {
         crearUsuario("Carlos", "barrio Cecilia", "1094029384", "carlos@hotmail.com","1724", banco);
         crearUsuario("Sandra", "Conjunto Sinai", "1097738093", "sandra@hotmail.com","9083", banco);
         crearUsuario("Miguel", "Barrio la milagrosa", "1083849302", "miguel@hotmail.com","4039", banco);
+        crearUsuario("Sara", "Barrio la castellana", "1032940394", "sara@hotmail.com","7645", banco);
 
         /*Read*/
-        System.out.println("Información usuarios: ");
+        System.out.println("\n" + "-----> Información usuarios: " + "\n");
         mostrarInformacionUsuarios(banco);
 
         /*Delate*/
         eliminarUsuario("1094029384", banco);
-        System.out.println("-----> Informacion luego de eliminar: ");
+        System.out.println("\n" + "-----> Informacion luego de eliminar: " + "\n" );
         mostrarInformacionUsuarios(banco);
 
         /*Update*/
         actualizarUsuario("1083849302", "Andres", "Barrio la adiela", "andres@gmail.com", "1234", banco);
-        System.out.println("-----> Informacion luego de actualizar: ");
+        System.out.println("\n" + "-----> Informacion luego de actualizar: " + "\n");
         mostrarInformacionUsuarios(banco);
 
         /*Cuenta*/
 
         /*Create*/
 
-        crearCuenta(10000, banco);
-        crearCuenta(50000, banco);
-        crearCuenta(20000, banco);
+        crearCuenta("1032940394",80000, banco);
+        crearCuenta("1083849302",70000, banco);
+        crearCuenta("1097738093",75000, banco);
 
-        System.out.println("Informacion Cuentas: ");
+        System.out.println("\n" + "Informacion Cuentas: " + "\n");
         mostrarInformacionCuentas(banco);
+
+        /*Transferencia*/
+
+        System.out.println("\n" + "-----> Informacion de transferencia:" + "\n");
+
+        realizarTransferencia("524049384", "524049386", 30000,Categoria.ROPA,banco);
+        mostrarInformacionTransferencias(banco);
+
+        System.out.println("\n" + "-----> Informacion de cuentas luego de transferir:" + "\n");
+
+        mostrarInformacionCuentas(banco);
+
+        System.out.println("\n" + "-----> Consultar saldo de una cuenta:" + "\n");
+
+        consultarSaldo("1083849302","1234", banco);
+
+        Date fechaConsulta = new Date(2023, 5, 3);
+
+        Transaccion consultaFecha = banco.consultarTransaccionFecha(fechaConsulta);
+
+        System.out.println(consultaFecha);
     }
+
+    private static void mostrarInformacionTransferencias(Banco banco) {
+        for (Cuenta cuenta: banco.getListaCuentas()){
+            cuenta.mostrarInformacionTransferencias();
+        }
+    }
+
 
     private static Banco inicializarDatosPrueba() {
 
@@ -62,9 +94,9 @@ public class Main {
         banco.crearUsuario(nombre, direccion, cedula, correo, contrasena);
     }
 
-    private static void crearCuenta(int saldo, Banco banco) {
+    private static void crearCuenta(String cedula, int saldo, Banco banco) {
 
-        banco.crearCuenta(saldo);
+        banco.crearCuenta(cedula, saldo);
     }
 
     private static void mostrarInformacionUsuarios(Banco banco) {
@@ -97,4 +129,15 @@ public class Main {
 
         banco.actualizarUsuario(cedula, nombre, direccion, correo, contrasena);
     }
+
+    private static void realizarTransferencia(String numeroCuentaRemitente,String numeroCuentaDestinatario,double monto,Categoria categoria,Banco banco){
+
+        banco.realizarTransferencia(numeroCuentaRemitente, numeroCuentaDestinatario, monto, categoria);
+    }
+
+    private static void consultarSaldo(String cedula, String contrasena, Banco banco) {
+
+        banco.consultarSaldo(cedula, contrasena);
+    }
+
 }

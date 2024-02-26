@@ -1,6 +1,10 @@
 package co.edu.uniquindio.tallerBanco.model;
 
+import co.edu.uniquindio.tallerBanco.enumeracion.Categoria;
+import co.edu.uniquindio.tallerBanco.enumeracion.TipoTransaccion;
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -86,13 +90,30 @@ public class Banco {
 
     }
 
-    public void crearCuenta(int saldo) {
+    public void crearCuenta(String cedula, int saldo) {
 
         Cuenta cuenta = new Cuenta();
         String cuentaUnico = generarNumeroCuentaUnico();
         cuenta.setNumeroCuenta(cuentaUnico);
         cuenta.setSaldo(saldo);
+
+        Usuario usuario = obtenerUsuario(cedula);
+
+        if (usuario != null){
+            cuenta.setUsuarioAsociado(usuario);
+        }
         getListaCuentas().add(cuenta);
+    }
+
+    private Usuario obtenerUsuario(String cedula) {
+        Usuario usuarioEncontrado = null;
+        for (Usuario usuario : getListaUsuarios()) {
+            if (usuario.getCedula().equals(cedula)) {
+                usuarioEncontrado = usuario;
+                break;
+            }
+        }
+        return usuarioEncontrado;
     }
 
     private String generarNumeroCuentaUnico() {
@@ -162,5 +183,101 @@ public class Banco {
                 break;
             }
         }
+    }
+
+    public void realizarTransferencia(String numeroCuentaRemitente, String numeroCuentaDestinatario, double monto, Categoria categoria) {
+
+        Cuenta cuentaRemitente = obtenerNumeroCuenta(numeroCuentaRemitente);
+        Cuenta cuentaDestinatario = obtenerNumeroCuenta(numeroCuentaDestinatario);
+
+        if (cuentaRemitente != null && cuentaDestinatario != null && revisarSaldo(numeroCuentaDestinatario, monto)){
+
+            Transaccion transaccionRemitente = new Transaccion(cuentaRemitente, cuentaDestinatario,monto, categoria, new Date(2023,5,3), TipoTransaccion.SALIDA);
+            cuentaRemitente.getListaTransacciones().add(transaccionRemitente);
+            transferir(cuentaRemitente, monto);
+            Transaccion transaccionDestinatario = new Transaccion(cuentaRemitente,cuentaDestinatario, monto, categoria, new Date(2023,5,3), TipoTransaccion.ENTRADA);
+            cuentaDestinatario.getListaTransacciones().add(transaccionDestinatario);
+            depositar(cuentaDestinatario, monto);
+
+        }
+    }
+
+    private void transferir(Cuenta cuentaRemitente, double monto) {
+
+        double saldoRemitente = cuentaRemitente.getSaldo() - monto - 200;
+
+        cuentaRemitente.setSaldo(saldoRemitente);
+    }
+
+    private void depositar(Cuenta cuentaDestinatario, double monto) {
+
+        double saldoDestinatario = cuentaDestinatario.getSaldo() + monto;
+
+        cuentaDestinatario.setSaldo(saldoDestinatario);
+
+    }
+
+    private boolean revisarSaldo(String numeroCuentaDestinatario, double monto) {
+
+        boolean saldoSuficiente = false;
+
+        for (Cuenta cuenta : listaCuentas){
+            if (cuenta.getNumeroCuenta().equalsIgnoreCase(numeroCuentaDestinatario)){
+                double saldo = cuenta.getSaldo();
+
+                if (saldo > monto){
+                    saldoSuficiente = true;
+                }
+            }
+        }
+        return saldoSuficiente;
+    }
+
+
+    private Cuenta obtenerNumeroCuenta(String numeroCuentaRemitente) {
+
+        Cuenta cuentaEncontrada = null;
+        for (Cuenta cuenta : listaCuentas){
+            if (cuenta.getNumeroCuenta().equalsIgnoreCase(numeroCuentaRemitente)){
+                cuentaEncontrada = cuenta;
+            }
+        }
+        return cuentaEncontrada;
+    }
+
+    public void consultarSaldo(String cedula, String contrasena) {
+
+        String saldoEncontrado = "Usuario no encontrado";
+
+        for (Cuenta cuenta : listaCuentas){
+            if (cuenta.getUsuarioAsociado().getCedula().equalsIgnoreCase(cedula) &&
+                    cuenta.getUsuarioAsociado().getContrasena().equalsIgnoreCase(contrasena)) {
+
+                saldoEncontrado = String.valueOf(cuenta.getSaldo());
+
+                if (cuenta.getListaTransacciones().isEmpty()){
+                    System.out.println("El usuario no tiene registradas transacciones");
+                }else {
+                    saldoEncontrado += "\n" + "Transacciones asociadas: "+ "\n" + cuenta.getListaTransacciones();
+                }
+            }
+
+        }
+
+        System.out.println("El saldo disponible en la cuenta es de: "+ saldoEncontrado +"\n");
+
+    }
+
+    public Transaccion consultarTransaccionFecha(Date fechaConsulta) {
+        Transaccion transaccionEncontrada = null;
+        for (Cuenta cuenta : listaCuentas ){
+            for (Transaccion transaccion : cuenta.getListaTransacciones()){
+                if (transaccion.getFecha() == fechaConsulta){
+                    transaccionEncontrada = transaccion;
+                }
+            }
+        }
+        return transaccionEncontrada;
+
     }
 }
