@@ -309,4 +309,80 @@ public class Banco {
         }
         return transaccionEncontrada;
     }
+
+    public void obtenerGastosIngresosMes(String idCuentaAhorros, LocalDate fechaInicio){
+        float ingresosMes = sumarMontoTipoTransaccion(idCuentaAhorros, fechaInicio,
+                TipoTransaccion.ENTRADA);
+        float gastosMes = sumarMontoTipoTransaccion(idCuentaAhorros, fechaInicio, TipoTransaccion.SALIDA);
+        float porcentajesGastosMes = calcularPorcentaje(gastosMes, ingresosMes);
+        float porcentajeIngresosMes = calcularPorcentaje(ingresosMes, gastosMes);
+        float gastosFacturas = sumarMontoCategoriaTransaccion(idCuentaAhorros, fechaInicio,
+                Categoria.FACTURA);
+        float gastosGasolina = sumarMontoCategoriaTransaccion(idCuentaAhorros, fechaInicio,
+                Categoria.GASOLINA);
+        float gastosRopa = sumarMontoCategoriaTransaccion(idCuentaAhorros, fechaInicio,
+                Categoria.ROPA);
+        float gastosViajes = sumarMontoCategoriaTransaccion(idCuentaAhorros, fechaInicio,
+                Categoria.VIAJE);
+
+        System.out.println("Los ingresos al mes son de: " + ingresosMes);
+        System.out.println("Los gastos al mes son de: " + gastosMes);
+        System.out.println("El porcentaje de gastos al mes es de: " + porcentajesGastosMes);
+        System.out.println("El porcentaje de ingresos al mes es de: " + porcentajeIngresosMes);
+        System.out.println("El gasto de facturas es de: " + gastosFacturas);
+        System.out.println("El gasto de gasolina es de: " + gastosGasolina);
+        System.out.println("El gasto de ropa es de: " + gastosRopa);
+        System.out.println("El gasto de viajes es de: " + gastosViajes);
+    }
+
+    private float sumarMontoCategoriaTransaccion(String idCuentaAhorros, LocalDate fechaInicio, Categoria categoria) {
+        double montosCategoriaMes = 0;
+        List<Transaccion> transaccionesMes = clasificarCuentasMes(idCuentaAhorros, fechaInicio);
+        for (Transaccion transaccion : transaccionesMes) {
+            if(transaccion.getTipoTransaccion().equals(TipoTransaccion.SALIDA)){
+                if (transaccion.getCategoria().equals(categoria)) {
+                    montosCategoriaMes += transaccion.getValor();
+                }
+            }
+        } return (float) montosCategoriaMes;
+    }
+
+    private float calcularPorcentaje(float monto1, float monto2) {
+
+        return ((monto1)/(monto1 + monto2))*100;
+    }
+
+    private float sumarMontoTipoTransaccion(String idCuentaAhorros, LocalDate fechaInicio, TipoTransaccion tipoTransaccion) {
+        float montosTipoMes = 0;
+        List<Transaccion> transaccionesMes = clasificarCuentasMes(idCuentaAhorros, fechaInicio);
+        for (Transaccion transaccion : transaccionesMes) {
+            if(transaccion.getTipoTransaccion().equals(tipoTransaccion)){
+                montosTipoMes += (float) transaccion.getValor();
+            }
+        } return montosTipoMes;
+    }
+
+    private List<Transaccion> clasificarCuentasMes(String idCuentaAhorros, LocalDate fechaInicio) {
+
+        List<Transaccion> transaccionesMes = new ArrayList<>();
+        Cuenta cuenta = obtenerCuenta(idCuentaAhorros);
+        for (Transaccion transaccion : cuenta.getListaTransacciones()) {
+            LocalDate fechaTransaccion = transaccion.getFecha();
+            if (fechaTransaccion.getMonth() == fechaInicio.getMonth() && fechaTransaccion.getYear() == fechaInicio.getYear()) {
+                transaccionesMes.add(transaccion);
+            }
+        }
+        return transaccionesMes;
+    }
+
+    private Cuenta obtenerCuenta(String idCuentaAhorros) {
+        Cuenta cuentaExistente = new Cuenta();
+        for (Cuenta cuenta : listaCuentas) {
+            if (cuenta.getNumeroCuenta().equals(idCuentaAhorros)) {
+                cuentaExistente = cuenta;
+                break;
+            }
+        }
+        return cuentaExistente;
+    }
 }

@@ -100,7 +100,7 @@ public class BancoTest {
     }
 
     @Test
-    public void consultarTransaccionTest(){
+    public void consultarTransaccionFechaTest(){
 
         banco.crearUsuario("Laura", "Barrio camellos", "1016943313", "laura@gmail.com","123");
         banco.crearUsuario("Sara", "Barrio la adiela", "1094839293", "sara@gmail.com","321");

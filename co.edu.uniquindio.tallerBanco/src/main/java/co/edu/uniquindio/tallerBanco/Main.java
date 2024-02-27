@@ -71,6 +71,9 @@ public class Main {
         Transaccion consultaFechaTransaccion = banco.consultarTransaccionFecha(fechaConsulta);
         System.out.println(consultaFechaTransaccion);
 
+        System.out.println("\n"+ "-----> Porcentaje de gastos e ingresos");
+        banco.obtenerGastosIngresosMes("524049384", fechaConsulta );
+
     }
 
     private static void mostrarInformacionTransferencias(Banco banco) {
