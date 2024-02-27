@@ -1,8 +1,10 @@
 package co.edu.uniquindio.tallerBanco.test;
 
 import co.edu.uniquindio.tallerBanco.enumeracion.Categoria;
+import co.edu.uniquindio.tallerBanco.enumeracion.TipoTransaccion;
 import co.edu.uniquindio.tallerBanco.model.Banco;
 import co.edu.uniquindio.tallerBanco.model.Cuenta;
+import co.edu.uniquindio.tallerBanco.model.Transaccion;
 import co.edu.uniquindio.tallerBanco.model.Usuario;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -95,6 +97,28 @@ public class BancoTest {
         banco.realizarTransferencia(numeroCuenta1, numeroCuenta2, 30000, Categoria.ROPA);
 
         Assertions.assertEquals(69800, banco.consultarSaldo("1016943313", "476"));
+    }
+
+    @Test
+    public void consultarTransaccionTest(){
+
+        banco.crearUsuario("Laura", "Barrio camellos", "1016943313", "laura@gmail.com","123");
+        banco.crearUsuario("Sara", "Barrio la adiela", "1094839293", "sara@gmail.com","321");
+        Cuenta cuenta = banco.crearCuenta("1016943313", 40000);
+        Cuenta cuenta2 = banco.crearCuenta("1094839293", 30000);
+
+        String numeroCuenta1 = cuenta.getNumeroCuenta();
+        String numeroCuenta2 = cuenta2.getNumeroCuenta();
+
+        LocalDate fechaConsulta = LocalDate.of(2024, 2, 26);
+
+        Transaccion transaccion = new Transaccion(cuenta, cuenta2, 30000, Categoria.VIAJE, fechaConsulta, TipoTransaccion.SALIDA);
+        cuenta.getListaTransacciones().add(transaccion);
+
+        banco.realizarTransferencia(numeroCuenta1, numeroCuenta2, 30000, Categoria.VIAJE);
+        Transaccion transaccionPorFecha = banco.consultarTransaccionFecha(fechaConsulta);
+
+        Assertions.assertTrue(transaccionPorFecha != null);
     }
 
 }
